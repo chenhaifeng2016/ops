@@ -43,6 +43,7 @@ public class Test {
        byte[] dataByteArray = null;
 
       // dataByteArray = readFile(FILE_PATH);
+        //我想要报修1号线中一路站1号闸机无法出票
       dataByteArray = "我想要报修1号线中一路站1号闸机无法出票".getBytes();
 
         String result = httpPost(URL, header, dataByteArray);

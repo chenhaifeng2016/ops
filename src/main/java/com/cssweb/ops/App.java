@@ -20,8 +20,8 @@ public class App {
             return;
         }
 
-        //String text = "我想要报修1号线中一路站1号闸机无法开门";
-        String text = "我想要报修1号线中一路站1号闸机无法出票";
+       String text = "我想要报修1号线中一路站1号闸机无法开门";
+        //String text = "我想要报修1号线中一路站1号闸机无法出票";
         NLPResponse nlpResponse = nlpService.sendText(text);
         if (nlpResponse == null) {
             System.out.println("语义理解失败");
@@ -42,6 +42,11 @@ public class App {
                     System.out.println("intent is null");
                 } else {
                     System.out.println("rc = " + data.getIntent().getRc());
+                    if (data.getIntent().getRc() != 0) {
+                        System.out.println("text: " + data.getIntent().getText());
+                        continue;
+                    }
+
 
                     if (data.getIntent().getText() == null) {
                         System.out.println("intent is {}");
@@ -92,6 +97,11 @@ public class App {
                     System.out.println("intent is null");
                 } else {
                     System.out.println("rc = " + data.getIntent().getRc());
+
+                    if (data.getIntent().getRc() != 0) {
+                        System.out.println("text:" + data.getIntent().getText());
+                        continue;
+                    }
 
                     if (data.getIntent().getText() == null) {
                         System.out.println("intent is {}");
